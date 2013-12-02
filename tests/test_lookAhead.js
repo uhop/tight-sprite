@@ -1,4 +1,4 @@
-var lookAhead2 = require("../src/lookAhead2");
+var lookAhead = require("../src/lookAhead");
 var sortRectangles = require("../src/sortRectangles");
 
 var rectangles = [], i;
@@ -42,7 +42,7 @@ var Envelope = require("../src/Envelope");
 var state = new RectState(rectangles), e = new Envelope(),
 	stack = [{envelope: e, area: 0, index: 0, rectIndex: -1, next: null}];
 
-var result = lookAhead2(state, stack, rectangles.length, function(score, state){
+var result = lookAhead(state, stack, rectangles.length, function(score, state){
 			console.log(score, state.rectangles);
 		});
 

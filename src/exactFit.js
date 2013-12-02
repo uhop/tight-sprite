@@ -5,7 +5,7 @@ var Envelope  = require("./Envelope");
 var lookAhead = require("./lookAhead");
 
 
-function exactFit2(rectangles){
+function exactFit(rectangles){
 	var bestLayout = null;
 
 	function captureLayout(_, rectangles){
@@ -24,4 +24,4 @@ function exactFit2(rectangles){
 	};
 }
 
-module.exports = exactFit2;
+module.exports = exactFit;
