@@ -1,4 +1,4 @@
-var windowOpt = require("../src/windowOpt");
+var windowOpt = require("../lib/windowOpt");
 
 var rectangles = [], i;
 
@@ -19,7 +19,7 @@ for(i = 0; i < 4; ++i){
 function produceScore(top, stack, state){
 	var cp = top.envelope.cornerPoints, w = cp[cp.length - 1].x, h = cp[0].y,
 		diff = cp.length - stack[stack.length - 2].envelope.cornerPoints.length;
-	//return [Math.max(state.totalArea, w * h), top.envelope.areaIn() - top.area, diff]; // 960
+	return [Math.max(state.totalArea, w * h), top.envelope.areaIn() - top.area, diff]; // 960
 	//return [Math.max(state.totalArea, w * h), top.envelope.areaIn() - top.area, diff, state.totalArea - top.area]; // 960
 	return [Math.max(state.totalArea, w * h), top.envelope.areaIn() - top.area, diff, w * h < state.totalArea ? Math.abs(h - w) : 0]; // 1600
 }
