@@ -19,7 +19,7 @@ var Envelope = require("./Envelope");
 // 4. Save an envelope, area, and start the corner point from 0.
 
 
-function lookAhead(state, stack, depth, callback){
+function lookAhead(state, stack, depth, produceScore, acceptNewScore){
 	var bestScore = null, bottom = stack.length - 1,
 		rl = state.rectangles.length, limit = Math.min(rl, bottom + depth),
 		mark, level, top, cp;
@@ -32,23 +32,26 @@ function lookAhead(state, stack, depth, callback){
 		}
 		if(level >= limit){
 			// we placed all rectangles
-			var score = state.getScore(cp[cp.length - 1].x, cp[0].y, top.envelope.areaIn(), top.area,
-					top.envelope.cornerPoints.length - stack[level - 1].envelope.cornerPoints.length);
+			//var score = state.getScore(cp[cp.length - 1].x, cp[0].y, top.envelope.areaIn(), top.area,
+			//		top.envelope.cornerPoints.length - stack[level - 1].envelope.cornerPoints.length);
 			//var score = cp[0].y * cp[cp.length - 1].x - top.area;
-			if(state.acceptScore(score, bestScore)){
-				// the best score so far
-				bestScore = score;
-				callback && callback(score, state, stack, bottom, limit);
-				/*
-				if(score == 0){
-					// the perfect score
-					while(stack.length > bottom){
-						top = stack.pop();
-						state.free(top.rectIndex, top.next);
+			var score = produceScore(top, stack, state);
+			scoring: {
+				if(bestScore){
+					for(var i = 0, n = score.length; i < n; ++i){
+						if(score[i] < bestScore[i]){
+							break;
+						}
+						if(score[i] > bestScore[i]){
+							break scoring;
+						}
 					}
-					break;
+					if(i === n){
+						break scoring;
+					}
 				}
-				*/
+				bestScore = score;
+				acceptNewScore(score, state, stack, bottom, limit);
 			}
 			stack.pop();
 			continue;

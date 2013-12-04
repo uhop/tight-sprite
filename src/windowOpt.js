@@ -7,10 +7,10 @@ var lookAhead = require("./lookAhead");
 var sortRectangles = require("./sortRectangles");
 
 
-function windowOpt(rectangles, depth, finalDepth){
+function windowOpt(rectangles, produceScore, depth, finalDepth){
 	sortRectangles.byAreaDescending(rectangles);
 
-	finalDepth = Math.min(isNaN(finalDepth) ? depth : finalDepth, depth);
+	finalDepth = Math.max(isNaN(finalDepth) ? depth : finalDepth, depth);
 
 	var bestScore, bestPosition = {x: 0, y: 0, i: 0, n: 0}, bestLayout = null,
 		envelope = new Envelope(), state = new RectState(rectangles),
@@ -35,7 +35,7 @@ function windowOpt(rectangles, depth, finalDepth){
 
 	if(rectangles.length <= finalDepth){
 		stack.push({envelope: envelope, area: area, index: 0, rectIndex: -1, next: null});
-		bestScore = lookAhead(state, stack, rectangles.length, captureLayout);
+		bestScore = lookAhead(state, stack, rectangles.length, produceScore, captureLayout);
 		return {
 			score:  bestScore,
 			layout: bestLayout
@@ -43,9 +43,10 @@ function windowOpt(rectangles, depth, finalDepth){
 	}
 
 	var n = rectangles.length - finalDepth, layout = new Array(n);
+	console.log("Packing " + rectangles.length + " rectangles...");
 	for(var i = 0; i < n; ++i){
 		stack.push({envelope: envelope, area: area, index: 0, rectIndex: -1, next: null});
-		lookAhead(state, stack, depth, capturePosition);
+		lookAhead(state, stack, depth, produceScore, capturePosition);
 		layout[i] = {x: bestPosition.x, y: bestPosition.y, i: bestPosition.i, n: bestPosition.n};
 		var rect = rectangles[bestPosition.n],
 			next = state.getRectangle(state.groupNodes[rect.group]);
@@ -53,9 +54,14 @@ function windowOpt(rectangles, depth, finalDepth){
 		envelope = new Envelope(envelope);
 		envelope.add(bestPosition.i, rect);
 		area += rect.area;
+		console.log("Packed " + (i + 1) + " rectangles (" +
+			(area / state.totalArea * 100).toFixed(2) + "%), wasted " +
+			(envelope.areaIn() - area));
 	}
+	console.log("Packing the last " + finalDepth + " rectangles...");
 	stack.push({envelope: envelope, area: area, index: 0, rectIndex: -1, next: null});
-	bestScore = lookAhead(state, stack, finalDepth, captureLayout);
+	bestScore = lookAhead(state, stack, finalDepth, produceScore, captureLayout);
+	console.log("Done.");
 
 	return {
 		score:  bestScore,
