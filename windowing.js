@@ -1,7 +1,7 @@
 "use strict";
 
 
-var windowOpt   = require("./lib/windowOpt");
+var windowOpt   = require("./lib/solvers/windowOpt");
 
 var getSize  = require("./lib/utils/getSize");
 var getArea  = require("./lib/utils/getArea");

@@ -1,4 +1,4 @@
-var windowOpt = require("../lib/windowOpt");
+var windowOpt = require("../lib/solvers/windowOpt");
 
 var rectangles = [], i;
 
