@@ -28,7 +28,7 @@ module.exports = function(rectangles, options){
 				bestLayout = layout;
 				if(!options.silent){
 					console.log("Found rectangle " + pallet.w +
-						" by " + pallet.h + " wasting only " +
+						" by " + pallet.h + " wasting " +
 						(area - totalArea) + " pixels.");
 				}
 			}
