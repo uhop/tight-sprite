@@ -1,6 +1,6 @@
 {
   "name": "tight-sprite",
-  "description": "Tight 2D packing of images into a sprite with a corresponding CSS.",
+  "description": "Tight 2D rectangle packer suitable for sprites.",
   "version": "0.1.0",
   "homepage": "https://github.com/uhop/tight-sprite",
   "author": {
