@@ -80,10 +80,10 @@ var totalHeight = rectangles.reduce(function(acc, rect){ return acc + rect.h; },
 	totalWidth  = rectangles.reduce(function(acc, rect){ return Math.max(acc, rect.w); }, -Infinity),
 	totalArea   = rectangles.reduce(function(acc, rect){ return acc + rect.area; }, 0);
 
-console.log("width: " + (width * 8) + ", height: " + (height * 8) + ", waste: " +
+console.log("BEST:  width: " + (width * 8) + ", height: " + (height * 8) + ", waste: " +
 	(width * height * 64 - totalArea) + " (" +
 		((width * height * 64 - totalArea) / totalArea * 100).toFixed(2) + "%)");
 
-console.log("width: " + totalWidth + ", height: " + totalHeight + ", waste: " +
+console.log("NAIVE: width: " + totalWidth + ", height: " + totalHeight + ", waste: " +
 	(totalWidth * totalHeight - totalArea) + " (" +
 		((totalWidth * totalHeight - totalArea) / totalArea * 100).toFixed(2) + "%)");
