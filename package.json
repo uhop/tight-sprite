@@ -29,7 +29,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "node tests/test_windowOpt.js"
+    "test": "node tests/test_windowing.js && node tests/test_palletizing.js"
   },
   "dependencies": {
     "heya-ctr": ">=0.2.3"
