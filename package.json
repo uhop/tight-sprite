@@ -29,10 +29,10 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "node tests/test_windowOpt.js"
   },
   "dependencies": {
-    "heya-ctr": ">=0.2"
+    "heya-ctr": ">=0.2.3"
   },
   "devDependencies": {
     "heya-unit": ">=0.1"
