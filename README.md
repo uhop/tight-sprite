@@ -35,7 +35,7 @@ It is fueled by real world problems: optimization of finite resources, storage, 
 Typical problems are: how to minimize a number of pallets to hold a given set of objects, or how to cut
 a sheet of paper into smaller pieces reducing waste and maximizing profit.
 
-Sometimes real world collides with a vertual world of CSS sprites. For example, technologically certain
+Sometimes real world collides with a virtual world of CSS sprites. For example, technologically certain
 materials can be  cut only with guillotine scissors: straight line from edge to edge. Obviously this restriction
 is not applicable for images. Or in majority of cases producers deal with predefined pallet sizes. We can make
 images of any size for CSS sprites.
@@ -44,16 +44,16 @@ It is proven that the problem is NP-complete. In practice it means that the only
 trying all possible permutations, which is possible only for a small number of rectangles, or in special
 circumstances (e.g., all of them are of equal size). For example, *Huang and Korf* (see References below)
 report on finding an exact solution for packing of 32 squares from 1x1 to 32x32 using their state of the art
-solver in 33 days 11 hours, 36 minuts, and 23 seconds. The previous record was 27 squares.
+solver in 33 days 11 hours, 36 minutes, and 23 seconds. The previous record was 27 squares.
 
 Given all that practical solutions usually use some kind of heuristics, which is not perfect, and can produce
-hilariously subpar solutions, but relatively fast, and usually close enough to an optimal solution. Obviously
+hilariously sub-par solutions, but relatively fast, and usually close enough to an optimal solution. Obviously
 many heuristics were proposed since invention of computers.
 
 While there are plenty of tools available to produce sprites, hardly any of them are concerned with efficient
 packing. There are many variants of naive stacking, or its variation: shelf packing (essentially horizontal
 stack of vertical stacks). Both are clearly suboptimal. Very popular are various tree-based algorithms based
-on a guilliotine splits. Because we don't require guilliotine cuts, this built-in restriction prohibts certain
+on guillotine splits. Because we don't require guillotine cuts, this built-in restriction prohibits certain
 optimizations. And of course there are some home-grown algorithms, which do not perform better than
 existing techniques proposed by mathematicians specializing in this area.
 
