@@ -8,8 +8,8 @@ If you are interested in efficient image asset management for your web projects,
 
 ## Introduction
 
-[CSS sprites](http://en.wikipedia.org/wiki/Sprite_(computer_graphics)#Sprites_by_CSS) is a techniques designed to replace
-multiple images with one, which combines all of them. The goal is to increase the overall performance of a web application by:
+[CSS sprites][] is a techniques designed to replace multiple images with one, which combines all of them.
+The goal is to increase the overall performance of a web application by:
 
 * Minimizing number of downloads, which is important in a high-latency scenarios.
 * Minimizing amount of data transferred, which is important for low-speed connections.
@@ -127,7 +127,7 @@ The returned object has following properties:
 The 32 squares problem, which was described above, is included as a test,
 but in a slightly different form. This is how it looks when it runs:
 
-```txt
+```
 $ time node tests/test_squares.js
 Packing 32 rectangles using the maximal rectangles algorithm.
 Found rectangle 469 by 32 wasting 1616 pixels.
@@ -158,3 +158,5 @@ Operations Research, Volume 48 Issue 2, March 2000. Pages 256-267.
 
 Jukka Jylänki. A Thousand Ways to Pack the Bin - A Practical Approach to Two-Dimensional Rectangle Bin Packing.
 Online resource at http://clb.demon.fi/files/RectangleBinPack.pdf.
+
+[CSS sprites] http://en.wikipedia.org/wiki/Sprite_(computer_graphics)#Sprites_by_CSS
