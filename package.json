@@ -1,7 +1,7 @@
 {
   "name": "tight-sprite",
   "description": "Tight 2D rectangle packer suitable for sprites.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/uhop/tight-sprite",
   "author": {
     "name": "Eugene Lazutkin",

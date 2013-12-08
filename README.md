@@ -4,7 +4,7 @@
 
 This package implements a  2D rectangle packing. It is conceived to serve as a foundation for producing CSS sprites.
 If you are interested in efficient image asset management for your web projects, please visit our sister project:
-[grunt-tight-sprite](https://github/uhop/grunt-tight-sprite).
+[grunt-tight-sprite](https://github.com/uhop/grunt-tight-sprite).
 
 ## Introduction
 
