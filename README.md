@@ -159,4 +159,4 @@ Operations Research, Volume 48 Issue 2, March 2000. Pages 256-267.
 Jukka Jylänki. A Thousand Ways to Pack the Bin - A Practical Approach to Two-Dimensional Rectangle Bin Packing.
 Online resource at http://clb.demon.fi/files/RectangleBinPack.pdf.
 
-[CSS sprites] http://en.wikipedia.org/wiki/Sprite_(computer_graphics)#Sprites_by_CSS
+[CSS sprites]: http://en.wikipedia.org/wiki/Sprite_(computer_graphics)#Sprites_by_CSS
