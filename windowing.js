@@ -73,8 +73,12 @@ module.exports = function(rectangles, strategies, options){
 	}
 
 	if(!options.silent){
-		console.log("The best solution with the envelope-based algorithm wasted " +
-			(bestArea - totalArea) + " pixels.");
+		var waste = bestArea - totalArea;
+		if(waste){
+			console.log("The best solution wasted " + waste + " pixels.");
+		}else{
+			console.log("Found ideal solution.");
+		}
 	}
 
 	return {area: bestArea, layout: bestLayout, rectangles: bestRectangles};
