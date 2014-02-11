@@ -17,7 +17,7 @@ module.exports = function(rectangles, options){
 
 	var pallet = new Pallet(rectangles),
 		totalArea = options.silent ? 0 : getTotalArea(rectangles),
-		bestArea = Infinity, bestLayout = null;
+		bestArea = Infinity, bestLayout = null, width = 0, height = 0;
 
 	for(;;){
 		var layout = maxRect(rectangles, pallet.w, pallet.h);
@@ -26,6 +26,8 @@ module.exports = function(rectangles, options){
 			if(area < bestArea){
 				bestArea = area;
 				bestLayout = layout;
+				width = pallet.w;
+				height = pallet.h;
 				if(!options.silent){
 					console.log("Found rectangle " + pallet.w +
 						" by " + pallet.h + " wasting " +
@@ -51,5 +53,5 @@ module.exports = function(rectangles, options){
 		}
 	}
 
-	return {area: bestArea, layout: bestLayout, rectangles: rectangles};
+	return {area: bestArea, w: width, h: height, layout: bestLayout, rectangles: rectangles};
 };

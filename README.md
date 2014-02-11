@@ -114,6 +114,8 @@ The returned object has following properties:
 
 * **area** -- a positive integer, which indicates what area was achieved. The whole point of
   the algorithm is to pack all rectangles minimizing this value.
+* **w** -- a positive integer, indicating the width of the resulting area.
+* **h** -- a positive integer, indicating the height of the resulting area.
 * **rectangles** -- an array of objects similar to the corresponding input argument. It points
   to the same objects, but they order can be different.
 * **layout** -- an array of position objects with following properties:
