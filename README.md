@@ -1,4 +1,6 @@
-# tight-sprite [![Build Status](https://secure.travis-ci.org/uhop/tight-sprite.png?branch=master)](http://travis-ci.org/uhop/tight-sprite) [![Dependency Status](https://david-dm.org/uhop/tight-sprite.png)](https://david-dm.org/uhop/tight-sprite)
+# tight-sprite
+
+[![Build Status](https://secure.travis-ci.org/uhop/tight-sprite.png?branch=master)](http://travis-ci.org/uhop/tight-sprite) [![Dependency Status](https://david-dm.org/uhop/tight-sprite.png)](https://david-dm.org/uhop/tight-sprite)
 
 > Tight 2D rectangle packer suitable for sprites.
 
@@ -44,18 +46,18 @@ It is proven that the problem is NP-complete. In practice it means that the only
 trying all possible permutations, which is possible only for a small number of rectangles, or in special
 circumstances (e.g., all of them are of equal size). For example, *Huang and Korf* (see References below)
 report on finding an exact solution for packing of 32 squares from 1x1 to 32x32 using their state of the art
-solver in 33 days 11 hours, 36 minutes, and 23 seconds. The previous record was 27 squares.
+solver in 33 days, 11 hours, 36 minutes, and 23 seconds. The previous record was 27 squares.
 
-Given all that practical solutions usually use some kind of heuristics, which is not perfect, and can produce
+Given all that practical solutions usually use some kind of heuristics, which are not perfect, and can produce
 hilariously sub-par solutions, but relatively fast, and usually close enough to an optimal solution. Obviously
 many heuristics were proposed since invention of computers.
 
 While there are plenty of tools available to produce sprites, hardly any of them are concerned with efficient
-packing. There are many variants of naive stacking, or its variation: shelf packing (essentially horizontal
-stack of vertical stacks). Both are clearly suboptimal. Very popular are various tree-based algorithms based
+packing. There are many variants of naive stacking, or their variations, like shelf packing (essentially horizontal
+stack of vertical stacks). They are clearly suboptimal. Very popular are various on tree-based algorithms based
 on guillotine splits. Because we don't require guillotine cuts, this built-in restriction prohibits certain
 optimizations. And of course there are some home-grown algorithms, which do not perform better than
-existing techniques proposed by mathematicians specializing in this area.
+existing techniques proposed by mathematicians specializing in this area, and typically inferior.
 
 This package implements two well-known algorithms:
 
