@@ -20,9 +20,9 @@ The goal is to increase the overall performance of a web application by:
 All three points have the biggest impact on mobile platform, but are generic enough to improve all web application targets.
 
 While modern compression tools can produce small files even from naively made sprites, e.g.,
-all images are vertically stacked padded with a static color. This padding is essentially a wasted
-space, but usually it can be efficiently compressed. At some point such sprite will reach
-its destination and will be unpacked spending 3-4 bytes per pixel regardless of how it was
+all images are vertically stacked padded with a static color, this padding is essentially a wasted
+space, but usually it can be efficiently compressed. Nevertheless at some point such sprite will reach
+its destination and will be unpacked spending 3-4 bytes per pixel regardless of how well it was
 compressed before. Browsers retain images as long as they are visible, so typically sprites are
 live during the life span of their web application reducing the available memory, forcing more
 frequent runs of a garbage collector, and even forcing some applications into swapping.
@@ -54,7 +54,7 @@ many heuristics were proposed since invention of computers.
 
 While there are plenty of tools available to produce sprites, hardly any of them are concerned with efficient
 packing. There are many variants of naive stacking, or their variations, like shelf packing (essentially horizontal
-stack of vertical stacks). They are clearly suboptimal. Very popular are various on tree-based algorithms based
+stack of vertical stacks). They are clearly suboptimal. Very popular are various tree-based algorithms based
 on guillotine splits. Because we don't require guillotine cuts, this built-in restriction prohibits certain
 optimizations. And of course there are some home-grown algorithms, which do not perform better than
 existing techniques proposed by mathematicians specializing in this area, and typically inferior.
