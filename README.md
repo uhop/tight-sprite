@@ -1,6 +1,10 @@
 # tight-sprite
 
-[![Build Status](https://secure.travis-ci.org/uhop/tight-sprite.png?branch=master)](http://travis-ci.org/uhop/tight-sprite) [![Dependency Status](https://david-dm.org/uhop/tight-sprite.png)](https://david-dm.org/uhop/tight-sprite)
+[![Build status][travis-image]][travis-url]
+[![Dependencies][deps-image]][deps-url]
+[![devDependencies][dev-deps-image]][dev-deps-url]
+[![NPM version][npm-image]][npm-url]
+
 
 > Tight 2D rectangle packer suitable for sprites.
 
@@ -15,7 +19,7 @@ The goal is to increase the overall performance of a web application by:
 
 * Minimizing number of downloads, which is important in a high-latency scenarios.
 * Minimizing amount of data transferred, which is important for low-speed connections.
-* Optimizing memory management on a client (one vs. many objects to keep), which is important on low-powered clients.
+* Optimizing memory management on a client (one vs. many objects to keep), which is important for low-powered clients.
 
 All three points have the biggest impact on mobile platform, but are generic enough to improve all web application targets.
 
@@ -53,7 +57,7 @@ hilariously sub-par solutions, but relatively fast, and usually close enough to 
 many heuristics were proposed since invention of computers.
 
 While there are plenty of tools available to produce sprites, hardly any of them are concerned with efficient
-packing. There are many variants of naive stacking, or their variations, like shelf packing (essentially horizontal
+packing. There are many variants of a naive stacking, or their variations, like a shelf packing (essentially horizontal
 stack of vertical stacks). They are clearly suboptimal. Very popular are various tree-based algorithms based
 on guillotine splits. Because we don't require guillotine cuts, this built-in restriction prohibits certain
 optimizations. And of course there are some home-grown algorithms, which do not perform better than
@@ -164,3 +168,12 @@ Jukka Jylänki. A Thousand Ways to Pack the Bin - A Practical Approach to Two-Di
 Online resource at http://clb.demon.fi/files/RectangleBinPack.pdf.
 
 [CSS sprites]: http://en.wikipedia.org/wiki/Sprite_(computer_graphics)#Sprites_by_CSS
+
+[npm-image]:      https://img.shields.io/npm/v/tight-sprite.svg
+[npm-url]:        https://npmjs.org/package/tight-sprite
+[deps-image]:     https://img.shields.io/david/uhop/tight-sprite.svg
+[deps-url]:       https://david-dm.org/uhop/tight-sprite
+[dev-deps-image]: https://img.shields.io/david/dev/uhop/tight-sprite.svg
+[dev-deps-url]:   https://david-dm.org/uhop/tight-sprite#info=devDependencies
+[travis-image]:   https://img.shields.io/travis/uhop/tight-sprite.svg
+[travis-url]:     https://travis-ci.org/uhop/tight-sprite
