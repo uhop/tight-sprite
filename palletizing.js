@@ -3,7 +3,7 @@
 
 var maxRect = require("./lib/solvers/maxRect");
 var Pallet  = require("./lib/Pallet");
-var getArea = require("./lib/utils/getArea");
+var getSize = require("./lib/utils/getSize");
 var getTotalArea = require("./lib/utils/getTotalArea");
 
 
@@ -22,19 +22,19 @@ module.exports = function(rectangles, options){
 	for(;;){
 		var layout = maxRect(rectangles, pallet.w, pallet.h);
 		if(layout){
-			var area = getArea(rectangles, layout);
-			if(area < bestArea){
-				bestArea = area;
+			var size = getSize(rectangles, layout);
+			if(size.area < bestArea){
+				bestArea = size.area;
 				bestLayout = layout;
-				width = pallet.w;
-				height = pallet.h;
+				width = size.w;
+				height = size.h;
 				if(!options.silent){
-					console.log("Found rectangle " + pallet.w +
-						" by " + pallet.h + " wasting " +
-						(area - totalArea) + " pixels.");
+					console.log("Found rectangle " + size.w +
+						" by " + size.h + " wasting " +
+						(size.area - totalArea) + " pixels.");
 				}
 			}
-			if(!pallet.next(area)){
+			if(!pallet.next(size.area)){
 				break;
 			}
 		}else{

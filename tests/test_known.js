@@ -1,5 +1,5 @@
 var solver = require("../palletizing");
-var getArea = require("../lib/utils/getArea");
+var getSize = require("../lib/utils/getSize");
 var getTotalArea = require("../lib/utils/getTotalArea");
 
 function addRectangles(rectangles, spec){
@@ -46,7 +46,7 @@ tests.forEach(function(test){
 	});
 	var result = solver(rectangles),
 		totalArea = getTotalArea(result.rectangles),
-		area = getArea(result.rectangles, result.layout),
-		filled = Math.round(100 * totalArea / area);
+		size = getSize(result.rectangles, result.layout),
+		filled = Math.round(100 * totalArea / size.area);
 	console.log(test.name + ": " + filled + "% vs. " + test.filled + "%");
 });

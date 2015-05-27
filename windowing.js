@@ -4,7 +4,6 @@
 var windowOpt   = require("./lib/solvers/windowOpt");
 
 var getSize  = require("./lib/utils/getSize");
-var getArea  = require("./lib/utils/getArea");
 var rotate   = require("./lib/utils/rotate");
 var unrotate = require("./lib/utils/unrotate");
 var getTotalArea = require("./lib/utils/getTotalArea");
@@ -32,12 +31,12 @@ module.exports = function(rectangles, strategies, options){
 				console.log("Trying strategy #" + (index + 1) + " ...");
 			}
 			var result = windowOpt(rectangles, produceScore, depth, finalDepth),
-				area = getArea(rectangles, result.layout);
+				size = getSize(rectangles, result.layout);
 			if(!options.silent){
-				console.log("Wasted " + (area - totalArea) + " pixels.");
+				console.log("Wasted " + (size.area - totalArea) + " pixels.");
 			}
-			if(result.layout && area < bestArea){
-				bestArea = area;
+			if(result.layout && size.area < bestArea){
+				bestArea = size.area;
 				bestLayout = result.layout;
 				bestRectangles = rectangles.slice(0);
 			}
@@ -59,12 +58,12 @@ module.exports = function(rectangles, strategies, options){
 				console.log("Trying strategy #" + (index + 1) + " ...");
 			}
 			var result = windowOpt(rotatedRectangles, produceScore, depth, finalDepth),
-				area = getArea(rectangles, result.layout);
+				size = getSize(rectangles, result.layout);
 			if(!options.silent){
-				console.log("Wasted " + (area - totalArea) + " pixels.");
+				console.log("Wasted " + (size.area - totalArea) + " pixels.");
 			}
-			if(result.layout && area < bestArea){
-				bestArea = area;
+			if(result.layout && size.area < bestArea){
+				bestArea = size.area;
 				bestLayout = rotateLayout(result.layout);
 				bestRectangles = unrotate(rectangles);
 			}
